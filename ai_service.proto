@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "backend/protobuf";
+
+// RPC service for AI capabilities of the chatbot
+service AIService {
+    rpc ClassifyType (ClassifyTypeRequest) returns (ClassifyTypeReply) {}
+}
+
+enum MessageType {
+    MESSAGE_REQUEST = 0;
+    MESSAGE_QUERY = 1;
+}
+
+message ClassifyTypeRequest {
+    string message = 1;
+}
+
+message ClassifyTypeReply {
+    MessageType type = 2;
+}
+
